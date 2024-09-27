@@ -11,6 +11,8 @@
 - <kbd>cmd</kbd> + <kbd>tab</kbd> - Switch Between Open Applications
 - <kbd>cmd</kbd> + <kbd>option</kbd> + <kbd>D</kbd> - Toggle Dock Visibility
 - <kbd>cmd</kbd> + <kbd>K</kbd> - Clear Terminal
+- <kbd>cmd</kbd> + <kbd>+</kbd> or <kbd>cmd</kbd> + <kbd>-</kbd> - Zoom In/Out 
+- <kbd>cmd</kbd> + <kbd>shift</kbd> + <kbd>4</kbd> - Screen Capture 
 
 ### VSCode
 
