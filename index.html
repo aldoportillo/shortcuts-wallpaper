@@ -7,8 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Shortcuts</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.10.5/dist/html-to-image.min.js" defer></script>
 </head>
 <body>
+  <button id="saveButton">Save as PNG</button>
   <main>
     
 <article><h3>Window Management</h3>
@@ -90,4 +92,21 @@
 
   </main>
 </body>
+<script defer>
+  const saveButton = document.getElementById('saveButton');
+  const content = document.getElementById('content');
+
+  saveButton.addEventListener('click', () => {
+    htmlToImage.toPng(content)
+      .then((dataUrl) => {
+        const link = document.createElement('a');
+        link.download = 'shortcuts-wallpaper.png';
+        link.href = dataUrl;
+        link.click();
+      })
+      .catch((error) => {
+        console.error('Error generating PNG:', error);
+      });
+  });
+</script>
 </html>
