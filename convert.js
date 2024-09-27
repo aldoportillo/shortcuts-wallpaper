@@ -1,12 +1,19 @@
 const fs = require('fs');
 const marked = require('marked');
 
-const markdownFile = './README.md';
+const markdownFile = './shortcuts.md';
 const markdownContent = fs.readFileSync(markdownFile, 'utf-8');
 
 console.log('Converting markdown to HTML...');
-const bodyContent = marked.parse(markdownContent);
 
+let bodyContent = marked.parse(markdownContent);
+
+bodyContent = bodyContent.replace(/<h2>(.*?)<\/h2>/g, ''); // Remove <h2> headers
+bodyContent = bodyContent.replace(/<h3>(.*?)<\/h3>/g, '<article><h3>$1</h3>'); // Wrap <h3> in <article>
+
+bodyContent = bodyContent.replace(/<\/ul>/g, '</ul></article>');
+
+// HTML template to wrap the bodyContent
 const htmlTemplate = `
 <!DOCTYPE html>
 <html lang="en">
@@ -14,12 +21,13 @@ const htmlTemplate = `
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Markdown to HTML</title>
-  <link ref="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
+  <title>Shortcuts</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  ${bodyContent}
+  <main>
+    ${bodyContent}
+  </main>
 </body>
 </html>
 `;
