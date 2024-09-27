@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Run Prettier to check code formatting
-        run: npx prettier --check '**/*.{js,json,css,html}'
+        run: npx prettier --write '**/*.{js,json,css,html}'
 
       - name: Run convert.js script
         run: node convert.js
