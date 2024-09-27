@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Shortcuts</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <i id="toggleColorSettings" class="fas fa-cog toggle-icon"></i>
+
+  <div id="colorSettings" class="color-settings">
+    <i id="closeSettings" class="fas fa-times close-icon"></i>
+
+    <label for="bgColorPicker">Background Color:</label>
+    <input type="color" id="bgColorPicker" value="#242424"><br>
+
+    <label for="textColorPicker">Text Color:</label>
+    <input type="color" id="textColorPicker" value="#ffffff"><br>
+
+    <label for="accentColorPicker">Accent Color:</label>
+    <input type="color" id="accentColorPicker" value="#F49A73"><br>
+
+    <button id="resetColors">Reset to Default</button>
+  </div>
+
+  <main>
+    
+<article><h3>Window Management</h3>
+<ul>
+<li><kbd>cmd</kbd> + <kbd>ctrl</kbd> + <kbd>F</kbd> - Toggle Full Screen</li>
+<li><kbd>cmd</kbd> + <kbd>shift</kbd> + <kbd>F</kbd> - Toggle Tabs</li>
+<li><kbd>cmd</kbd> + <kbd>option</kbd> + <kbd>M</kbd> - Minimize Window</li>
+<li><kbd>cmd</kbd> + <kbd>W</kbd> - Close Current Tab</li>
+<li><kbd>cmd</kbd> + <kbd>T</kbd> - Open New Tab</li>
+<li><kbd>cmd</kbd> + <kbd>Q</kbd> - Quit Application</li>
+<li><kbd>cmd</kbd> + <kbd>tab</kbd> - Switch Between Open Applications</li>
+<li><kbd>cmd</kbd> + <kbd>option</kbd> + <kbd>D</kbd> - Toggle Dock Visibility</li>
+<li><kbd>cmd</kbd> + <kbd>K</kbd> - Clear Terminal</li>
+</ul></article>
+<article><h3>VSCode</h3>
+<ul>
+<li><kbd>cmd</kbd> + <kbd>J</kbd> - Toggle Terminal</li>
+<li><kbd>cmd</kbd> + <kbd>B</kbd> - Toggle Sidebar</li>
+<li><kbd>cmd</kbd> + <kbd>shift</kbd> + <kbd>F</kbd> - Project-Wide Search</li>
+<li><kbd>cmd</kbd> + <kbd>F</kbd> - File-Wide Search</li>
+<li><kbd>cmd</kbd> + <kbd>shift</kbd> + <kbd>L</kbd> - Select All Instances of Highlighted Text</li>
+<li><kbd>cmd</kbd> + <kbd>P</kbd> - Quick Open Files</li>
+<li><kbd>cmd</kbd> + <kbd>shift</kbd> + <kbd>P</kbd> - Command Palette</li>
+<li><kbd>cmd</kbd> + <kbd>K</kbd>, then <kbd>cmd</kbd> + <kbd>S</kbd> - All Keyboard Shortcuts</li>
+</ul></article>
+<article><h3>Typing and Editing</h3>
+<ul>
+<li><kbd>cmd</kbd> + <kbd>Z</kbd> - Undo</li>
+<li><kbd>cmd</kbd> + <kbd>shift</kbd> + <kbd>Z</kbd> - Redo</li>
+<li><kbd>cmd</kbd> + <kbd>C</kbd> - Copy</li>
+<li><kbd>cmd</kbd> + <kbd>V</kbd> - Paste</li>
+<li><kbd>cmd</kbd> + <kbd>X</kbd> - Cut</li>
+<li><kbd>cmd</kbd> + <kbd>A</kbd> - Select All</li>
+<li><kbd>cmd</kbd> + <kbd>S</kbd> - Save</li>
+<li><kbd>option</kbd> + <kbd>Arrow</kbd> - Move cursor to the previous or next word</li>
+<li><kbd>cmd</kbd> + <kbd>Arrow</kbd> - Move cursor to the beginning or end of the line</li>
+<li><kbd>shift</kbd> + <kbd>option</kbd> + <kbd>Arrow</kbd> - Select text to the previous or next word</li>
+</ul></article>
+
+<article><h3>Navigation</h3>
+<ul>
+<li><code>cd [directory]</code> - Change current directory to <code>[directory]</code>.</li>
+<li><code>ls</code> - List files and directories in the current directory.</li>
+<li><code>pwd</code> - Display the current directory path.</li>
+</ul></article>
+<article><h3>File Operations</h3>
+<ul>
+<li><code>mv [source] [destination]</code> - Move or rename files or directories.</li>
+<li><code>rm [file]</code> - Remove/delete a file.</li>
+<li><code>rm -r [directory]</code> - Remove/delete a <strong>directory</strong> and its contents.</li>
+<li><code>mkdir [directory]</code> - Create a new directory.</li>
+<li><code>touch [file]</code> - Create a new empty file or update the timestamp of an existing file.</li>
+</ul></article>
+<article><h3>GitHub</h3>
+<ul>
+<li><code>git add [file]</code> - Stage changes for the next commit.</li>
+<li><code>git commit -m &quot;message&quot;</code> - Commit changes with a message.</li>
+<li><code>git checkout [branch]</code> - Switch to a different branch or restore working tree files.</li>
+<li><code>git push</code> - Push local commits to the remote repository.</li>
+<li><code>git pull</code> - Fetch and merge changes from the remote repository.</li>
+<li><code>git clone [repository_url]</code> - Clone a repository into a new directory.</li>
+<li><code>git branch</code> - List, create, or delete branches.</li>
+<li><code>git log</code> - View the commit history.</li>
+</ul></article>
+<article><h3>System Information</h3>
+<ul>
+<li><code>top</code> - Display active processes.</li>
+<li><code>df -h</code> - Show disk space usage in a human-readable format.</li>
+<li><code>du -sh [directory]</code> - Show the total disk usage of a directory.</li>
+</ul></article>
+<article><h3>Process Management</h3>
+<ul>
+<li><code>chmod +x [file]</code> - Make a file executable.</li>
+<li><code>ps aux | grep [process_name]</code> - Search for a specific process by name (i.e Rails).</li>
+<li><code>sudo lsof -i :[port_number]</code> - List open files and processes using a specific port.</li>
+<li><code>kill -9 [PID]</code> - Forcefully terminate a process by its Process ID (PID).</li>
+<li><code>top</code> - Display real-time system processes.</li>
+</ul></article>
+
+  </main>
+</body>
+</html>
