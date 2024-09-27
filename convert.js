@@ -23,11 +23,14 @@ const htmlTemplate = `
   <title>Shortcuts</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
- <button id="toggleColorSettings" class="toggle-btn">Show Color Settings</button>
+  <i id="toggleColorSettings" class="fas fa-cog toggle-icon"></i>
 
   <div id="colorSettings" class="color-settings">
+    <i id="closeSettings" class="fas fa-times close-icon"></i>
+
     <label for="bgColorPicker">Background Color:</label>
     <input type="color" id="bgColorPicker" value="#242424"><br>
 
