@@ -7,20 +7,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; 
-  overflow: hidden; 
+  height: 100vh;
+  overflow: hidden;
 }
 
-
 main {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-  gap: 10px;
+  column-count: 3;
+  column-gap: 20px;
   padding: 20px;
-  width: 100vw; 
-  height: 100vh;
+  width: 100vw;
   box-sizing: border-box;
-  overflow: hidden; 
 }
 
 article {
@@ -29,10 +25,9 @@ article {
   padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   border: 1px solid #555;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%; 
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -40,7 +35,7 @@ h3 {
   margin: 0 0 10px 0;
   text-align: center;
   color: #F49A73;
-  font-size: 1.2em; 
+  font-size: 1.2em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -50,19 +45,19 @@ ul {
   padding: 0;
   margin: 0;
   list-style: none;
-  flex-grow: 1; 
-  font-size: 0.8em; 
+  font-size: 0.8em;
   line-height: 1.4em;
-  overflow: hidden;
+  flex-grow: 1;
 }
 
 li {
   padding: 4px;
   font-size: 0.8em;
   border-left: 3px solid #F49A73;
-  white-space: nowrap;
+  white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
+  word-break: break-word;
 }
 
 kbd, code {
@@ -70,30 +65,22 @@ kbd, code {
   color: #F49A73;
   padding: 3px 5px;
   border-radius: 3px;
-  font-size: 0.8em; 
+  font-size: 0.8em;
+  white-space: normal;
 }
 
 kbd {
   font-weight: bold;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   main {
-    grid-template-columns: 1fr;
+    column-count: 2;
   }
 }
 
-
-@media (min-width: 1024px) {
-  h3 {
-    font-size: 1.1em;
-  }
-
-  li {
-    font-size: 0.85em;
-  }
-
-  kbd, code {
-    font-size: 0.85em;
+@media (max-width: 768px) {
+  main {
+    column-count: 1;
   }
 }
