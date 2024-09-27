@@ -37,10 +37,17 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Commit changes
+      - name: Add and commit all changes if any
         run: |
-          git add index.html
-          git commit -m "Auto-generated index.html from convert.js"
-          git push origin HEAD:${{ github.ref_name }} # Push to the current branch
+          git add .  # Add all modified files
+          if git diff --cached --exit-code; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto-generated commit with changes"
+          fi
+
+      - name: Push changes
+        run: |
+          git push origin HEAD:${{ github.ref_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
