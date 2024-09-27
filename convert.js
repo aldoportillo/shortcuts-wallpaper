@@ -8,8 +8,8 @@ console.log('Converting markdown to HTML...');
 
 let bodyContent = marked.parse(markdownContent);
 
-bodyContent = bodyContent.replace(/<h2>(.*?)<\/h2>/g, ''); 
-bodyContent = bodyContent.replace(/<h3>(.*?)<\/h3>/g, '<article><h3>$1</h3>'); 
+bodyContent = bodyContent.replace(/<h2>(.*?)<\/h2>/g, '');
+bodyContent = bodyContent.replace(/<h3>(.*?)<\/h3>/g, '<article><h3>$1</h3>');
 
 bodyContent = bodyContent.replace(/<\/ul>/g, '</ul></article>');
 

@@ -56,10 +56,10 @@ resetBtn.addEventListener('click', () => {
 });
 
 function updateAccentColor(color) {
-  document.querySelectorAll('h3, li, kbd').forEach(element => {
+  document.querySelectorAll('h3, li, kbd').forEach((element) => {
     element.style.color = color;
   });
-  document.querySelectorAll('li').forEach(element => {
+  document.querySelectorAll('li').forEach((element) => {
     element.style.borderLeftColor = color;
   });
 }
