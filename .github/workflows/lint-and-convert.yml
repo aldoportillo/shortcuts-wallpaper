@@ -3,10 +3,10 @@ name: Lint, Convert, and Commit
 on:
   push:
     branches:
-      - main
+      - '*' 
   pull_request:
     branches:
-      - main
+      - '*'
 
 jobs:
   lint_and_convert:
@@ -15,16 +15,18 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }} 
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14' 
+          node-version: '14'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Run Prettier to check code formatting
+      - name: Run Prettier to format code
         run: npx prettier --write '**/*.{js,json,css,html}'
 
       - name: Run convert.js script
@@ -37,8 +39,9 @@ jobs:
 
       - name: Commit changes
         run: |
+          git checkout ${{ github.ref_name }}
           git add index.html
           git commit -m "Auto-generated index.html from convert.js"
-          git push
+          git push origin ${{ github.ref_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
