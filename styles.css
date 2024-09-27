@@ -1,73 +1,82 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #242424;
-    color: white;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
-    box-sizing: border-box;
-    overflow: auto;
+  margin: 0;
+  padding: 0;
+  background-color: #242424;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  background-color: #333;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  border: 1px solid #555;
+}
+
+h2, h3 {
+  margin: 10px 0;
+  text-align: center;
+  color: #F49A73;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+li {
+  margin-bottom: 8px;
+  padding: 5px;
+  font-size: 0.9em;
+  border-left: 4px solid #F49A73;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+kbd, code {
+  background-color: #555;
+  color: #F49A73;
+  padding: 3px 5px;
+  border-radius: 3px;
+}
+
+kbd {
+  font-weight: bold;
+}
+
+article {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
   }
-  
-  /* Styling for sections */
-  .section {
-    flex: 1 1 300px;
-    max-width: 400px;
-    background-color: #333;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid #555;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Styling for list groups */
-  .list-group {
-    margin-bottom: 20px;
-  }
-  
-  h2, h3 {
-    color: #F49A73;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    margin-bottom: 10px;
-    padding: 5px;
-    border-left: 4px solid #F49A73;
-    font-size: 1em;
-  }
-  
-  kbd {
-    background-color: #555;
-    padding: 3px 5px;
-    border-radius: 3px;
-    color: #F49A73;
-  }
-  
-  code {
-    background-color: #555;
-    padding: 3px 5px;
-    border-radius: 3px;
-    color: #F49A73;
-    font-family: 'Courier New', Courier, monospace;
-  }
-  
-  @media (max-width: 768px) {
-    body {
-      justify-content: center;
-      gap: 10px;
-    }
-  
-    .section {
-      flex: 1 1 100%;
-      max-width: 100%;
-    }
-  }
-  
+}
