@@ -1,0 +1,44 @@
+name: Lint, Convert, and Commit
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint_and_convert:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14' 
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Prettier to check code formatting
+        run: npx prettier --check '**/*.{js,json,css,html}'
+
+      - name: Run convert.js script
+        run: node convert.js
+
+      - name: Configure Git user
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit changes
+        run: |
+          git add index.html
+          git commit -m "Auto-generated index.html from convert.js"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
