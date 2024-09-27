@@ -8,15 +8,12 @@ console.log('Converting markdown to HTML...');
 
 let bodyContent = marked.parse(markdownContent);
 
-bodyContent = bodyContent.replace(/<h2>(.*?)<\/h2>/g, '<section><h2>$1</h2>'); // Wrap <h2> in <section>
+bodyContent = bodyContent.replace(/<h2>(.*?)<\/h2>/g, ''); // Remove <h2> headers
 bodyContent = bodyContent.replace(/<h3>(.*?)<\/h3>/g, '<article><h3>$1</h3>'); // Wrap <h3> in <article>
 
-bodyContent = bodyContent.replace(/<\/ul>/g, '</ul></article></section>');
+bodyContent = bodyContent.replace(/<\/ul>/g, '</ul></article>');
 
-if (bodyContent.startsWith('</section>')) {
-  bodyContent = bodyContent.replace('</section>', '');
-}
-
+// HTML template to wrap the bodyContent
 const htmlTemplate = `
 <!DOCTYPE html>
 <html lang="en">
