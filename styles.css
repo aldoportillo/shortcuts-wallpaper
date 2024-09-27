@@ -34,7 +34,7 @@ article {
 h3 {
   margin: 0 0 10px 0;
   text-align: center;
-  color: #F49A73;
+  color: #f49a73;
   font-size: 1.2em;
   white-space: nowrap;
   overflow: hidden;
@@ -53,16 +53,17 @@ ul {
 li {
   padding: 4px;
   font-size: 0.8em;
-  border-left: 3px solid #F49A73;
+  border-left: 3px solid #f49a73;
   white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
   word-break: break-word;
 }
 
-kbd, code {
+kbd,
+code {
   background-color: #555;
-  color: #F49A73;
+  color: #f49a73;
   padding: 3px 5px;
   border-radius: 3px;
   font-size: 0.8em;
@@ -71,6 +72,62 @@ kbd, code {
 
 kbd {
   font-weight: bold;
+}
+
+.toggle-icon {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: #f49a73;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 200;
+}
+
+.toggle-icon:hover {
+  color: #777;
+}
+
+.color-settings {
+  display: none;
+  position: absolute;
+  bottom: 60px;
+  right: 20px;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  width: 200px;
+  z-index: 100;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #f49a73;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.close-icon:hover {
+  color: #777;
+}
+
+#resetColors {
+  margin-top: 10px;
+  background-color: #555;
+  color: #f49a73;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+#resetColors:hover {
+  background-color: #777;
 }
 
 @media (max-width: 1024px) {

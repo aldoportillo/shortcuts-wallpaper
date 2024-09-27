@@ -8,12 +8,11 @@ console.log('Converting markdown to HTML...');
 
 let bodyContent = marked.parse(markdownContent);
 
-bodyContent = bodyContent.replace(/<h2>(.*?)<\/h2>/g, ''); // Remove <h2> headers
-bodyContent = bodyContent.replace(/<h3>(.*?)<\/h3>/g, '<article><h3>$1</h3>'); // Wrap <h3> in <article>
+bodyContent = bodyContent.replace(/<h2>(.*?)<\/h2>/g, '');
+bodyContent = bodyContent.replace(/<h3>(.*?)<\/h3>/g, '<article><h3>$1</h3>');
 
 bodyContent = bodyContent.replace(/<\/ul>/g, '</ul></article>');
 
-// HTML template to wrap the bodyContent
 const htmlTemplate = `
 <!DOCTYPE html>
 <html lang="en">
@@ -23,8 +22,27 @@ const htmlTemplate = `
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Shortcuts</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+  <i id="toggleColorSettings" class="fas fa-cog toggle-icon"></i>
+
+  <div id="colorSettings" class="color-settings">
+    <i id="closeSettings" class="fas fa-times close-icon"></i>
+
+    <label for="bgColorPicker">Background Color:</label>
+    <input type="color" id="bgColorPicker" value="#242424"><br>
+
+    <label for="textColorPicker">Text Color:</label>
+    <input type="color" id="textColorPicker" value="#ffffff"><br>
+
+    <label for="accentColorPicker">Accent Color:</label>
+    <input type="color" id="accentColorPicker" value="#F49A73"><br>
+
+    <button id="resetColors">Reset to Default</button>
+  </div>
+
   <main>
     ${bodyContent}
   </main>
