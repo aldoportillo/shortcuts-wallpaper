@@ -25,7 +25,9 @@ const htmlTemplate = `
   <script src="script.js" defer></script>
 </head>
 <body>
- <div id="color-settings">
+ <button id="toggleColorSettings" class="toggle-btn">Show Color Settings</button>
+
+  <div id="colorSettings" class="color-settings">
     <label for="bgColorPicker">Background Color:</label>
     <input type="color" id="bgColorPicker" value="#242424"><br>
 
@@ -34,7 +36,10 @@ const htmlTemplate = `
 
     <label for="accentColorPicker">Accent Color:</label>
     <input type="color" id="accentColorPicker" value="#F49A73"><br>
+
+    <button id="resetColors">Reset to Default</button>
   </div>
+
   <main>
     ${bodyContent}
   </main>
