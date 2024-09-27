@@ -1,8 +1,9 @@
 const bgColorPicker = document.getElementById('bgColorPicker');
 const textColorPicker = document.getElementById('textColorPicker');
 const accentColorPicker = document.getElementById('accentColorPicker');
-const toggleBtn = document.getElementById('toggleColorSettings');
+const toggleIcon = document.getElementById('toggleColorSettings');
 const colorSettings = document.getElementById('colorSettings');
+const closeIcon = document.getElementById('closeSettings');
 const resetBtn = document.getElementById('resetColors');
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,19 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-toggleBtn.addEventListener('click', () => {
-  if (colorSettings.style.display === 'none' || colorSettings.style.display === '') {
-    colorSettings.style.display = 'block';
-    toggleBtn.textContent = 'Hide Color Settings';
-  } else {
-    colorSettings.style.display = 'none';
-    toggleBtn.textContent = 'Show Color Settings';
-  }
+toggleIcon.addEventListener('click', () => {
+  colorSettings.style.display = 'block';
+});
+
+closeIcon.addEventListener('click', () => {
+  colorSettings.style.display = 'none';
 });
 
 bgColorPicker.addEventListener('input', (event) => {
   localStorage.setItem('bgColor', event.target.value);
-  location.reload(); 
+  location.reload();
 });
 
 textColorPicker.addEventListener('input', (event) => {
@@ -46,14 +45,14 @@ textColorPicker.addEventListener('input', (event) => {
 
 accentColorPicker.addEventListener('input', (event) => {
   localStorage.setItem('accentColor', event.target.value);
-  location.reload(); 
+  location.reload();
 });
 
 resetBtn.addEventListener('click', () => {
   localStorage.removeItem('bgColor');
   localStorage.removeItem('textColor');
   localStorage.removeItem('accentColor');
-  location.reload(); 
+  location.reload();
 });
 
 function updateAccentColor(color) {
